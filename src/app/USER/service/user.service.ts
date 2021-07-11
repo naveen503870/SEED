@@ -8,7 +8,9 @@ export class UserService {
   // mainurl="http://3.134.89.88:3000"
   // mainurl = "https://api.shopitemonline.com";//this is the live one
   // mainurl = "https://api.nsuperfood.com"
-  mainurl = "http://192.168.1.110:3000"
+  // mainurl = "http://192.168.1.110:3000"
+  // mainurl = "http://192.168.0.101:3000"
+  mainurl = "http://localhost:3000"
   guestObj: any = {};
   url = `${this.mainurl}/customer`;
   // url = "http://ec2-3-15-9-93.us-east-2.compute.amazonaws.com:3000/admin"
