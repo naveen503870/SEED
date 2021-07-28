@@ -24,7 +24,7 @@ export class UserCheckoutComponent implements OnInit {
     totalPrice = 0;
     cart;
     handlingFee = 0;
-    nightCharges=0;
+    nightCharges = 0;
     deliveryLocation;
 
     stateArr = []
@@ -56,29 +56,29 @@ export class UserCheckoutComponent implements OnInit {
     async setState(val) {
         const res: any = await this.cityService.getCitiesByStateId(val);
         console.log(val)
-        let tempObj=this.stateArr.find(el=>el._id==val);
-        this.state=tempObj.name
+        let tempObj = this.stateArr.find(el => el._id == val);
+        this.state = tempObj.name
         this.cityArr = res.data
     }
 
     async setCity(val) {
         const res: any = await this.location.getLocationsByCityId(val);
-        let tempObj=this.cityArr.find(el=>el._id==val);
-        this.city=tempObj.name
+        let tempObj = this.cityArr.find(el => el._id == val);
+        this.city = tempObj.name
         this.locationArr = res.data
     }
 
     async setLocation(val) {
         let timeObj;
-        let tempObj=this.locationArr.find(el=>el._id==val);
-        this.deliveryLocation=tempObj.name
+        let tempObj = this.locationArr.find(el => el._id == val);
+        this.deliveryLocation = tempObj.name
         const res: any = await this.location.getById(val);
         console.log(res)
         const response: any = await this.user.getTime();
         timeObj = response.data
-        if(timeObj.hour>=23 || timeObj.hour<=4){
-            this.nightCharges=res.data.nightFee;
-            this.totalPrice=this.totalPrice+this.nightCharges
+        if (timeObj.hour >= 23 || timeObj.hour <= 4) {
+            this.nightCharges = res.data.nightFee;
+            this.totalPrice = this.totalPrice + this.nightCharges
         }
     }
 
@@ -89,7 +89,7 @@ export class UserCheckoutComponent implements OnInit {
             city: this.city,
             state: this.state,
             zipCode: this.zipCode,
-            location:this.deliveryLocation
+            location: this.deliveryLocation
         };
         let billingInfo = {
             customerId: this.userObj._id,
