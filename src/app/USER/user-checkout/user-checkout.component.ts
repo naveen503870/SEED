@@ -35,15 +35,15 @@ export class UserCheckoutComponent implements OnInit {
     ngOnInit() {
         this.getUserInfo();
         // this.getTime();
-        this.getState();
+        // this.getState();
         // this.getLocations();
         // this.getCity()
     }
 
-    async getState() {
-        const res: any = await this.stateService.getall();
-        this.stateArr = res.data
-    }
+    // async getState() {
+    //     const res: any = await this.stateService.getall();
+    //     this.stateArr = res.data
+    // }
     // async getCity(){
     //     const res:any=await this.cityService.getall();
     //     this.cityArr=res.data
@@ -53,34 +53,34 @@ export class UserCheckoutComponent implements OnInit {
     //     this.locationArr=res.data
     // }
 
-    async setState(val) {
-        const res: any = await this.cityService.getCitiesByStateId(val);
-        console.log(val)
-        let tempObj=this.stateArr.find(el=>el._id==val);
-        this.state=tempObj.name
-        this.cityArr = res.data
-    }
+    // async setState(val) {
+    //     const res: any = await this.cityService.getCitiesByStateId(val);
+    //     console.log(val)
+    //     let tempObj=this.stateArr.find(el=>el._id==val);
+    //     this.state=tempObj.name
+    //     this.cityArr = res.data
+    // }
 
-    async setCity(val) {
-        const res: any = await this.location.getLocationsByCityId(val);
-        let tempObj=this.cityArr.find(el=>el._id==val);
-        this.city=tempObj.name
-        this.locationArr = res.data
-    }
+    // async setCity(val) {
+    //     const res: any = await this.location.getLocationsByCityId(val);
+    //     let tempObj=this.cityArr.find(el=>el._id==val);
+    //     this.city=tempObj.name
+    //     this.locationArr = res.data
+    // }
 
-    async setLocation(val) {
-        let timeObj;
-        let tempObj=this.locationArr.find(el=>el._id==val);
-        this.deliveryLocation=tempObj.name
-        const res: any = await this.location.getById(val);
-        console.log(res)
-        const response: any = await this.user.getTime();
-        timeObj = response.data
-        if(timeObj.hour>=23 || timeObj.hour<=4){
-            this.nightCharges=res.data.nightFee;
-            this.totalPrice=this.totalPrice+this.nightCharges
-        }
-    }
+    // async setLocation(val) {
+    //     let timeObj;
+    //     let tempObj=this.locationArr.find(el=>el._id==val);
+    //     this.deliveryLocation=tempObj.name
+    //     const res: any = await this.location.getById(val);
+    //     console.log(res)
+    //     const response: any = await this.user.getTime();
+    //     timeObj = response.data
+    //     if(timeObj.hour>=23 || timeObj.hour<=4){
+    //         this.nightCharges=res.data.nightFee;
+    //         this.totalPrice=this.totalPrice+this.nightCharges
+    //     }
+    // }
 
     async walletPay() {
         let address = {
