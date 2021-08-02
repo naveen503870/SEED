@@ -34,7 +34,7 @@ export class UserCheckoutComponent implements OnInit {
 
     ngOnInit() {
         this.getUserInfo();
-        // this.getTime();
+        // this.getTime();                  //comment
         // this.getState();
         // this.getLocations();
         // this.getCity()
