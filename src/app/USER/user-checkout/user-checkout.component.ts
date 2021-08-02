@@ -24,7 +24,7 @@ export class UserCheckoutComponent implements OnInit {
     totalPrice = 0;
     cart;
     handlingFee = 0;
-    nightCharges=0;
+    nightCharges = 0;
     deliveryLocation;
 
     stateArr = []
@@ -89,7 +89,7 @@ export class UserCheckoutComponent implements OnInit {
             city: this.city,
             state: this.state,
             zipCode: this.zipCode,
-            location:this.deliveryLocation
+            location: this.deliveryLocation
         };
         let billingInfo = {
             customerId: this.userObj._id,
